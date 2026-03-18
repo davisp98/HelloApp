@@ -5,13 +5,17 @@ public class HelloApp {
         
         // Check if names are provided as command-line arguments
         if (args.length > 0) {
-            // Code Snippet for HelloApp UC4:
             StringBuilder nameBuilder = new StringBuilder();
-            for (int i = 0; i < args.length; i++) {
-                nameBuilder.append(args[i]);
-                if (i < args.length - 1) {
+            boolean isFirst = true; // Flag to help us handle commas
+            
+            // Enhanced for loop (for-each)
+            for (String arg : args) {
+                // If it's not the first name, add a comma and space before appending
+                if (!isFirst) {
                     nameBuilder.append(", ");
                 }
+                nameBuilder.append(arg);
+                isFirst = false; // Turn off the flag after the first name
             }
             name = nameBuilder.toString(); // Use the provided names
         }
