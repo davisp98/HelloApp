@@ -6,18 +6,14 @@ public class HelloApp {
         // Check if names are provided as command-line arguments
         if (args.length > 0) {
             StringBuilder nameBuilder = new StringBuilder();
-            boolean isFirst = true; // Flag to help us handle commas
             
-            // Enhanced for loop (for-each)
+            // Enhanced for loop appending EVERY name with a comma and space
             for (String arg : args) {
-                // If it's not the first name, add a comma and space before appending
-                if (!isFirst) {
-                    nameBuilder.append(", ");
-                }
-                nameBuilder.append(arg);
-                isFirst = false; // Turn off the flag after the first name
+                nameBuilder.append(arg).append(", ");
             }
-            name = nameBuilder.toString(); // Use the provided names
+            
+            // Use substring to grab everything from index 0 up to (but not including) the last 2 characters
+            name = nameBuilder.substring(0, nameBuilder.length() - 2);
         }
         
         System.out.println("Hello, " + name + "!");
