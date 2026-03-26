@@ -1,5 +1,15 @@
 public class HelloApp {
     public static void main(String[] args) {
-        System.out.println("Hello, world!");
+        // Default name
+        String name = "World";
+
+        // Check if names are provided as command-line arguments
+        if (args.length > 0) {
+            // Use String.join to combine all elements in the args array with a comma and space
+            name = String.join(", ", args);
+        }
+
+        // Print the final greeting
+        System.out.println("Hello, " + name + "!");
     }
 }
